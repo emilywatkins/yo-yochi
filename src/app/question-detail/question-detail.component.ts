@@ -11,6 +11,8 @@ import { QuestionService } from '../question.service';
   providers: [QuestionService]
 })
 export class QuestionDetailComponent implements OnInit {
+  questionId: number;
+  questionToDisplay: Question;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,8 +24,6 @@ export class QuestionDetailComponent implements OnInit {
     this.route.params.forEach((URLParameters) => {
       this.questionId = parseInt(URLParameters['id']);
     });
+    this.questionToDisplay = this.questionService.getQuestionById(this.questionId);
   }
-
-  questionId: number = null;
-
 }
