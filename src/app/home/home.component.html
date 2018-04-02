@@ -5,7 +5,8 @@
 
 <div class="container" id="fbq">
   <h2>Frequently Borked Questions</h2>
-  <div *ngFor="let question of questions" (click)="goToDetail(question)" class="well">
+  <div *ngFor="let question of questions | async" (click)="goToDetail(question)" class="well">
     <p>{{question.title}}</p>
+    <p>{{question.body}}</p>
   </div>
 </div>

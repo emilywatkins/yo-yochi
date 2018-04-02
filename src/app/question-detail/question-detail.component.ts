@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Question } from '../question.model';
 import { QuestionService } from '../question.service';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-question-detail',
@@ -11,8 +12,8 @@ import { QuestionService } from '../question.service';
   providers: [QuestionService]
 })
 export class QuestionDetailComponent implements OnInit {
-  questionId: number;
-  questionToDisplay: Question;
+  questionId: string;
+  questionToDisplay;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +23,7 @@ export class QuestionDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((URLParameters) => {
-      this.questionId = parseInt(URLParameters['id']);
+      this.questionId = URLParameters['id'];
     });
     this.questionToDisplay = this.questionService.getQuestionById(this.questionId);
   }

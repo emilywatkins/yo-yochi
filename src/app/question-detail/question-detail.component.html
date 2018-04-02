@@ -1,4 +1,4 @@
 <p>
-  {{questionToDisplay.title}}
-  {{questionToDisplay.body}}
+  {{(questionToDisplay | async)?.title}}
+  {{(questionToDisplay | async)?.body}}
 </p>

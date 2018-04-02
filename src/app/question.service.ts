@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Question } from './question.model';
-import { QUESTIONS } from './mock-questions';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class QuestionService {
 
-  constructor() { }
+  questions;
 
-  getQuestions() {
-    return QUESTIONS;
+  constructor(private database: AngularFireDatabase) {
+    this.questions = database.list('questions');
   }
 
-  getQuestionById(questionId: number) {
-    for (var i = 0; i <= QUESTIONS.length - 1; i++) {
-      if (QUESTIONS[i].id === questionId) {
-        return QUESTIONS[i];
-      }
-    }
+  getQuestions() {
+    return this.questions;
+  }
+
+  getQuestionById(questionId: string) {
+    return this.database.object('questions/' + questionId);
   }
 
 }
