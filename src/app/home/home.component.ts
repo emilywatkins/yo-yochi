@@ -26,4 +26,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['questions', clickedQuestion.$key]);
   };
 
+  submitForm(title: string) {
+  var newQuestion: Question = new Question(title);
+  this.questionService.addQuestion(newQuestion);
+  }
 }

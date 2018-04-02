@@ -19,4 +19,8 @@ export class QuestionService {
     return this.database.object('questions/' + questionId);
   }
 
+  addQuestion(newQuestion: Question) {
+    this.questions.push(newQuestion);
+  }
+
 }

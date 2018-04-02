@@ -1,12 +1,11 @@
 <form class="askQuestion">
-  <input [(ngModel)]="question" name="question" type="text" class="form-control" id="question"><br>
-  <button type="button" name="button" class="btn btn-info">Ask!</button>
+  <input #newTitle class="form-control" id="question"><br>
+  <button (click)="submitForm(newTitle.value); newTitle.value='';" class="btn btn-info">Ask!</button>
 </form>
 
 <div class="container" id="fbq">
   <h2>Frequently Borked Questions</h2>
   <div *ngFor="let question of questions | async" (click)="goToDetail(question)" class="well">
-    <p>{{question.title}}</p>
-    <p>{{question.body}}</p>
+    <h4>{{question.title}}</h4>
   </div>
 </div>
