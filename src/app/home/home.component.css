@@ -1,0 +1,21 @@
+#question {
+  width: 500px;
+}
+
+#fbq {
+  text-align: center;
+}
+
+.well {
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+}
+.askQuestion input{
+  display: block;
+  margin: 0 auto;
+}
+
+.askQuestion {
+    text-align: center;
+}

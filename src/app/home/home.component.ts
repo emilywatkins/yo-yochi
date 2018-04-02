@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   }
 
   questions: Question[] = [
-    new Question("title1", "body1", 1),
-    new Question("title2", "body2", 2)
+    new Question("What's your favorite toy?", "body1", 1),
+    new Question("What is the meaning of life?", "body2", 2)
   ];
 
   goToDetail(clickedQuestion: Question) {
